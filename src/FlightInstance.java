@@ -6,9 +6,54 @@ public class FlightInstance {
     private FlightStatus status;
     private Aircraft aircraft;
 
-    public boolean cancel(){
-        return true;
+
+    public FlightInstance(Time departureTime, String gate, FlightStatus status, Aircraft aircraft){
+        this.departureTime = departureTime;
+        this.gate = gate;
+        this.status = status;
+        this.aircraft = aircraft;
     }
 
-    public void updateStatus(FlightStatus status){}
+    public Time getDepartureTime() {
+        return departureTime;
+    }
+
+    public String getGate() {
+        return gate;
+    }
+
+    public FlightStatus getStatus() {
+        return status;
+    }
+
+    public Aircraft getAircraft() {
+        return aircraft;
+    }
+
+    public void setDepartureTime(Time departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public void setGate(String gate) {
+        this.gate = gate;
+    }
+
+    public void setStatus(FlightStatus status) {
+        this.status = status;
+    }
+
+    public void setAircraft(Aircraft aircraft) {
+        this.aircraft = aircraft;
+    }
+
+    public boolean cancel(){
+        status = FlightStatus.CANCELLED;
+        return true;
+
+    }
+
+    public void updateStatus(FlightStatus status){
+        this.status = status;
+    }
+
 }
